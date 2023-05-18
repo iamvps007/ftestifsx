@@ -1,0 +1,308 @@
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/C:/webdev/tools/Maven/Repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/C:/webdev/tools/Maven/Repository/org/apache/logging/log4j/log4j-slf4j-impl/2.17.2/log4j-slf4j-impl-2.17.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+2023-05-18 13:35:01,232 [main][] INFO  c.e.m.b.SampleSpringBatchApplication - Starting SampleSpringBatchApplication using Java 1.8.0_352 on WSAMZN-2T1295E5 with PID 1144 (D:\Users\kmrksh\git\IFXDepletionReport-Batch\target\classes started by kmrksh in D:\Users\kmrksh\git\IFXDepletionReport-Batch)
+2023-05-18 13:35:01,235 [main][] INFO  c.e.m.b.SampleSpringBatchApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-18 13:35:03,452 [main][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2023-05-18 13:35:03,468 [main][] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-18 13:35:03,469 [main][] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-05-18 13:35:03,784 [main][] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-18 13:35:03,785 [main][] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2455 ms
+2023-05-18 13:35:03,957 [main][] INFO  c.g.c.datasource.DataSourceConfig - Configuring RoutingDataSource
+2023-05-18 13:35:03,959 [main][] INFO  c.g.c.datasource.DataSourceConfig - Configuring datasource:sb
+2023-05-18 13:35:03,968 [main][] INFO  com.zaxxer.hikari.HikariDataSource - sb - Starting...
+2023-05-18 13:35:04,560 [main][] INFO  com.zaxxer.hikari.HikariDataSource - sb - Start completed.
+2023-05-18 13:35:05,435 [main][] INFO  o.s.b.c.r.s.JobRepositoryFactoryBean - No database type set, using meta data indicating: H2
+2023-05-18 13:35:05,465 [main][] INFO  o.s.b.c.l.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+2023-05-18 13:35:05,621 [main][] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2023-05-18 13:35:05,640 [main][] INFO  c.e.m.b.SampleSpringBatchApplication - Started SampleSpringBatchApplication in 5.066 seconds (JVM running for 5.721)
+2023-05-18 13:35:05,643 [main][] INFO  o.s.b.a.b.JobLauncherApplicationRunner - Running default command line with: []
+2023-05-18 13:35:05,773 [main][] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=job]] launched with the following parameters: [{run.id=1}]
+IncomeFlex Depletion Report job started.
+2023-05-18 13:35:05,835 [main][] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [step1]
+2023-05-18 13:35:06,012 [main][] ERROR o.s.batch.core.step.AbstractStep - Encountered an error executing step step1 in job job
+org.springframework.batch.item.ItemStreamException: Failed to initialize the reader
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:153)
+	at org.springframework.batch.item.support.CompositeItemStream.open(CompositeItemStream.java:104)
+	at org.springframework.batch.core.step.tasklet.TaskletStep.open(TaskletStep.java:311)
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:205)
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:152)
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:413)
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:136)
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:320)
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher$1.run(SimpleJobLauncher.java:149)
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50)
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:128)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at com.sun.proxy.$Proxy64.run(Unknown Source)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.execute(JobLauncherApplicationRunner.java:199)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.executeLocalJobs(JobLauncherApplicationRunner.java:173)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.launchJobFromProperties(JobLauncherApplicationRunner.java:160)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.run(JobLauncherApplicationRunner.java:155)
+	at org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner.run(JobLauncherApplicationRunner.java:150)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:749)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.empowerretirement.moneyout.batch.SampleSpringBatchApplication.main(SampleSpringBatchApplication.java:13)
+Caused by: org.springframework.jdbc.BadSqlGrammarException: Executing query; bad SQL grammar [SELECT * FROM GLWB_INV_RIDER_ACCT_VIEW WHERE PROD_TYPE='INCOMEFLEX' AND STATUS_CODE='P']; nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "GLWB_INV_RIDER_ACCT_VIEW" not found; SQL statement:
+SELECT * FROM GLWB_INV_RIDER_ACCT_VIEW WHERE PROD_TYPE='INCOMEFLEX' AND STATUS_CODE='P' [42102-214]
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:239)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:70)
+	at org.springframework.batch.item.database.AbstractCursorItemReader.translateSqlException(AbstractCursorItemReader.java:226)
+	at org.springframework.batch.item.database.JdbcCursorItemReader.openCursor(JdbcCursorItemReader.java:133)
+	at org.springframework.batch.item.database.AbstractCursorItemReader.doOpen(AbstractCursorItemReader.java:453)
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:150)
+	... 32 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "GLWB_INV_RIDER_ACCT_VIEW" not found; SQL statement:
+SELECT * FROM GLWB_INV_RIDER_ACCT_VIEW WHERE PROD_TYPE='INCOMEFLEX' AND STATUS_CODE='P' [42102-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8398)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8369)
+	at org.h2.command.Parser.readTableOrView(Parser.java:8358)
+	at org.h2.command.Parser.readTablePrimary(Parser.java:1863)
+	at org.h2.command.Parser.readTableReference(Parser.java:2334)
+	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2772)
+	at org.h2.command.Parser.parseSelect(Parser.java:2878)
+	at org.h2.command.Parser.parseQueryPrimary(Parser.java:2762)
+	at org.h2.command.Parser.parseQueryTerm(Parser.java:2633)
+	at org.h2.command.Parser.parseQueryExpressionBody(Parser.java:2612)
+	at org.h2.command.Parser.parseQueryExpressionBodyAndEndOfQuery(Parser.java:2605)
+	at org.h2.command.Parser.parseQueryExpression(Parser.java:2598)
+	at org.h2.command.Parser.parseQuery(Parser.java:2567)
+	at org.h2.command.Parser.parsePrepared(Parser.java:724)
+	at org.h2.command.Parser.parse(Parser.java:689)
+	at org.h2.command.Parser.parse(Parser.java:661)
+	at org.h2.command.Parser.prepareCommand(Parser.java:569)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:92)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:639)
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:351)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
+	at org.springframework.batch.item.database.JdbcCursorItemReader.openCursor(JdbcCursorItemReader.java:122)
+	... 34 common frames omitted
+2023-05-18 13:35:06,018 [main][] INFO  o.s.batch.core.step.AbstractStep - Step: [step1] executed in 183ms
+IncomeFlex Depletion Report job failed.
+2023-05-18 13:35:06,030 [main][] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=job]] completed with the following parameters: [{run.id=1}] and the following status: [FAILED] in 222ms
+2023-05-18 13:35:06,134 [main][] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+Picked up JAVA_TOOL_OPTIONS: -Djava.vendor="Sun Microsystems Inc." -Djava.security.properties="C:/Windows/Sun/Java/Deployment/java.security"
+
+
+Code:
+package com.empowerretirement.moneyout.batch;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.mail.internet.MimeMessage;
+import javax.sql.DataSource;
+
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobExecutionListener;
+import org.springframework.batch.core.JobParametersValidator;
+import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
+import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
+import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.launch.JobLauncher;
+import org.springframework.batch.core.launch.support.RunIdIncrementer;
+import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.batch.item.ItemProcessor;
+import org.springframework.batch.item.database.JdbcCursorItemReader;
+import org.springframework.batch.item.file.FlatFileItemWriter;
+import org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor;
+import org.springframework.batch.item.file.transform.DelimitedLineAggregator;
+import org.springframework.batch.repeat.RepeatStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.mail.javamail.MimeMessageHelper;
+
+import com.empowerretirement.moneyout.listener.IncomeFlexDepletionReportJobListener;
+import com.empowerretirement.moneyout.model.MyObject;
+import com.empowerretirement.moneyout.model.Participant;
+
+@Configuration
+@EnableBatchProcessing
+public class BatchConfiguration {
+
+    @Autowired
+    private JobBuilderFactory jobBuilderFactory;
+
+    @Autowired
+    private StepBuilderFactory stepBuilderFactory;
+
+    @Autowired
+    private DataSource dataSource;
+   
+    @Value("${notification.email.to}")
+    private String notificationEmailTo;
+
+    @Autowired
+    private org.springframework.mail.javamail.JavaMailSender javaMailSender;
+
+    @Bean
+    public JdbcCursorItemReader<MyObject> reader() {
+        JdbcCursorItemReader<MyObject> reader = new JdbcCursorItemReader<>();
+        reader.setDataSource(dataSource);
+        reader.setSql("SELECT * FROM GLWB_INV_RIDER_ACCT_VIEW WHERE PROD_TYPE='INCOMEFLEX' AND STATUS_CODE='P'");
+        reader.setRowMapper(new MyObjectRowMapper());
+        return reader;
+    }
+
+    public class MyObjectRowMapper implements RowMapper<MyObject> {
+        @Override
+        public MyObject mapRow(ResultSet rs, int rowNum) throws SQLException {
+            MyObject data=new MyObject();
+            data.setGa_id(rs.getInt("ga_id"));
+            data.setInd_id(rs.getInt("ind_id"));
+            data.setSdio_id(rs.getInt("stdio_id"));
+            data.setProd_subtype(rs.getString("prod_subtype"));
+            return data;
+        } 
+    }
+
+    @Bean
+    public FlatFileItemWriter<MyObject> writer() {
+        FlatFileItemWriter<MyObject> writer = new FlatFileItemWriter<>();
+        writer.setResource(new FileSystemResource("IncomeFlexDepletionReport.csv"));
+        writer.setHeaderCallback(writer1 -> writer1.write("GA ID, IND ID, STDIO ID, PROD SUBTYPE"));
+        writer.setLineAggregator(new DelimitedLineAggregator<MyObject>() {{
+            setDelimiter(",");
+            setFieldExtractor(new BeanWrapperFieldExtractor<MyObject>() {{
+                setNames(new String[] {"ga_id","ind_id","stdio_id","prod_subtype"});
+            }});
+        }});
+        return writer;
+    }
+    
+    @Bean
+    public JobExecutionListener incomeFlexDepletionReportJobListener() {
+    	return new IncomeFlexDepletionReportJobListener();
+    }
+
+//    @Bean
+//    public ItemProcessor<MyObject, Participant> processor() {
+//        return new ParticipantProcessor(depletionThreshold);
+//    }
+
+    @Bean
+    public Step step1() {
+        return stepBuilderFactory.get("step1")
+        .<MyObject, MyObject>chunk(10)
+        .reader(reader())
+        //.processor(processor())
+        .writer(writer())
+        .build();
+    }
+
+    @Bean
+    public Job job(Step createNotificationStep, Step step1) {
+        return jobBuilderFactory.get("job")
+        .incrementer(new RunIdIncrementer())
+        .listener(incomeFlexDepletionReportJobListener())
+        .start(step1)
+        .next(createNotificationStep)
+        //.end()
+        .build();
+    }
+
+    @Bean
+    public Tasklet createNotificationTasklet() {
+        return (contribution, chunkContext) -> {
+            MimeMessage message = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            helper.setTo(notificationEmailTo);
+            helper.setSubject("Test");
+            helper.setText("Please find the attached");
+            FileSystemResource file = new FileSystemResource("IncomeFlexDepletionReport.csv");
+            helper.addAttachment("IncomeFlexDepletionReport.csv", file);
+            javaMailSender.send(message);
+            return RepeatStatus.FINISHED;
+        };
+    }
+
+    @Bean 
+    public Step createNotificationStep() {
+        return stepBuilderFactory.get("createNotificationStep")
+        .tasklet(createNotificationTasklet())
+        .build();
+    }
+}
+
+
+
+Application.properties:
+# JDBC DataSource Configurations
+
+
+# IN03
+datasource.in03.jdbcUrl=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=din03db.gwl.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(UR=A)(SERVICE_NAME=din03web2.isis.gwl.com)))
+datasource.in03.username=DVS_MO
+datasource.in03.password=rob1n
+datasource.in03.minimumIdle=0
+datasource.in03.maximumPoolSize=2
+datasource.in03.idleTimeout=60000
+datasource.in03.dataSource.oracle.jdbc.DRCPConnectionClass=SYS_DEFAULT_CONNECTION_POOL
+datasource.in03.dataSource.defaultRowPrefetch=2000
+datasource.in03.dataSource.useFetchSizeWithLongColumn=true
+
+
+
+
+
+
+
+# SPRING BATCH
+datasource.springbatch.jdbcUrl=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=is-zcadbdev.gwl.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(UR=A)(SERVICE_NAME=DEVO_PRIMARY)))
+datasource.springbatch.username=spring_batch
+datasource.springbatch.password=bittins4718
+datasource.springbatch.minimumIdle=0
+datasource.springbatch.maximumPoolSize=2
+datasource.springbatch.idleTimeout=60000
+datasource.springbatch.oracle.jdbc.DRCPConnectionClass=SYS_DEFAULT_CONNECTION_POOL
+
+
+#in-memory meta-data
+datasource.sb.jdbcUrl=jdbc:h2:mem:sb;
+datasource.sb.username=sa
+datasource.sb.password=
+datasource.sb.minimumIdle=0
+datasource.sb.maximumPoolSize=5
+datasource.sb.idleTimeout=60000
+
+
+spring.main.banner-mode=off
+
+#datasource-manager.enabled=true
+datasource-manager.defaultDataSource=sb
+#datasource-manager.enabledDatasources=in02,in03, in04, is02, inst,pnp,isis,sb
+datasource-manager.enabledDatasources=in03,inst, sb
+mo.common.enabledDatasources=in03,inst,sb
+explicit.exit.enable=true
+
+# Log levels
+logging.level.com.gwf=DEBUG
+#logging.level.org.springframework=INFO
+#logging.level.org.springframework.cache=TRACE
+
